@@ -3,11 +3,11 @@
 {% block content %}
     <div class="container">
       <div class="row">
-          {% for item in object_list %}
+          {% for item in videos %}
         <div class="col-sm">
-            <a href="https://www.youtube.com/watch?v=H9ebP76B4l4">
-            <img src="https://i1.ytimg.com/vi/H9ebP76B4l4/hqdefault.jpg" alt="{{item.nome}}" width="200" height="200" class="img-thumbnail">
-            <p>MURILO COUTO - LULA ESTÁ LIVRE</p>
+            <a href="{{videos.url}}">
+            <img src="{{videos.miniatura}}" alt="{{videos.nome}}" width="200" height="200" class="img-thumbnail">
+            <p>{{videos.nome}}</p>
             </a>
         </div>
           {% endfor %}
