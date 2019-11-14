@@ -3,13 +3,15 @@
 {% block content %}
     <div class="container">
       <div class="row">
-          {% for item in videos %}
-        <div class="col-sm">
-            <a href="{{videos.url}}">
-            <img src="{{videos.miniatura}}" alt="{{videos.nome}}" width="200" height="200" class="img-thumbnail">
-            <p>{{videos.nome}}</p>
-            </a>
-        </div>
+        {% for item in videos.url %}
+          <div class="col-sm">
+            {% with index=forloop.counter0 %}
+              <a href="{{item.url.index}}">
+              <img src="{{item.miniatura.index}}" alt="{{item.nome.index}}" width="200" height="200" class="img-thumbnail">
+              <p>{{item.nome.index}}</p>
+              </a>
+            {% endwith %}
+          </div>
           {% endfor %}
       </div>
     </div>

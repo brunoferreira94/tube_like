@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from listagem.views import listagem
+from listagem.views import listagem, lista_xml
 
 urlpatterns = [
     path('admin/', admin.site.urls),

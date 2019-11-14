@@ -8,19 +8,19 @@ class listagem(ListView):
     template_name = 'listagem/home.html'
 
 def lista_xml(request):
-    tree = et.parse('/storage/emulated/0/Download/arquivo.xml')
+    tree = et.parse('videos.xml')
     root = tree.getroot()
-    x = 0
-    videos = [[], [], []]
+    #x = 0
+    videos = {'url':[], 'nome':[], 'miniatura':[]}
     
     for item in root:
         if item.tag == 'entry':
             url = item[4].attrib['href']
             nome = item[3].text
             miniatura = item[8][2].attrib['url']
-            videos[0].append(url)
-            videos[1].append(nome)
-            videos[2].append(miniatura)
-            print('nome: {} \nurl: {} \nminiatura: {}'.format(videos[1][x], videos[0][x], videos[2][x]))
-            x=+1 x=+1
-    return(request, 'listagem/home.html', videos)
+            videos['url'].append(url)
+            videos['nome'].append(nome)
+            videos['miniatura'].append(miniatura)
+            #print('nome: {} \nurl: {} \nminiatura: {}'.format(videos['nome'][x], videos['url'][x], videos['miniatura'][x]))
+            #x=+1
+    return render(request, 'listagem/home.html', videos)
