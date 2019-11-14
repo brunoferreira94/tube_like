@@ -19,5 +19,5 @@ from listagem.views import listagem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', listagem.as_view())
+    path('', lista_xml)
 ]
