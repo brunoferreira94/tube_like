@@ -3,14 +3,12 @@
 {% block content %}
     <div class="container">
       <div class="row">
-        {% for item in url %}
-          <div class="col-sm">
-            {% with index=forloop.counter0 %}
-              <a href="{{url.index}}">
-              <img src="{{miniatura.index}}" alt="{{nome.index}}" width="200" height="200" class="img-thumbnail">
-              <p>{{nome.index}}</p>
+        {% for item in list %}
+          <div class="col-sm-2">
+              <a href="{{item.url}}">
+              <img src="{{item.miniatura}}" alt="{{item.nome}}" class="img-thumbnail">
+              <p>{{item.nome}}</p>
               </a>
-            {% endwith %}
           </div>
           {% endfor %}
       </div>

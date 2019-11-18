@@ -10,17 +10,14 @@ class listagem(ListView):
 def lista_xml(request):
     tree = et.parse('videos.xml')
     root = tree.getroot()
-    #x = 0
-    videos = {'url':[], 'nome':[], 'miniatura':[]}
+    videos = []
     
     for item in root:
         if item.tag == 'entry':
             url = item[4].attrib['href']
             nome = item[3].text
             miniatura = item[8][2].attrib['url']
-            videos['url'].append(url)
-            videos['nome'].append(nome)
-            videos['miniatura'].append(miniatura)
-            #print('nome: {} \nurl: {} \nminiatura: {}'.format(videos['nome'][x], videos['url'][x], videos['miniatura'][x]))
-            #x=+1
-    return render(request, 'listagem/home.html', videos)
+            videos.append({'url':url, 'nome':nome, 'miniatura':miniatura})
+    for item in videos:
+        print(item['nome'])
+    return render(request, 'listagem/home.html', {'list':videos})
