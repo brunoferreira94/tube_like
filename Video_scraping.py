@@ -23,9 +23,9 @@ def get_categorias():
 
 
 def get_videos(categorias, url_home):
-    videos = {'id':[], 'nome':[], 'url':[], 'miniatura':[], 'orientacao':[]}
+    videos = {'id':[], 'nome':[], 'url':[], 'miniatura':[], 'orientacao':[], 'categoria':[]}
     for categoria in categorias:
-        result = requests.get(categoria)
+        result = requests.get(categoria['url'])
         src = result.content
         soup = BeautifulSoup(src,'html.parser')
         for item  in soup.find_all('li',attrs={'class':' js-pop videoblock videoBox'}):
@@ -34,6 +34,7 @@ def get_videos(categorias, url_home):
             item_aux = item.find('a', attrs={'class':'linkVideoThumb js-linkVideoThumb img '})
             videos['nome'].append(item_aux['title'])
             videos['url'].append(url_home + item_aux['href'])
+            videos['categoria'].append(categoria['nome'])
 
 
 
