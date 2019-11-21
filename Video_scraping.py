@@ -42,10 +42,10 @@ def get_videos(categorias, url_home):
                     if item_aux == None or item_aux == '':
                         print('Nenhum item na tag a')
                         break
-                    cont+=1
                     print(item['_vkey']+'|'+item['data-segment']+'|'+item_aux['title']+'|'+url_home + item_aux['href']+'|'+categoria['nome']+'\n')
                     with open('base.csv','a') as arquivo:
                         arquivo.write(item['_vkey']+'|'+item['data-segment']+'|'+item_aux['title']+'|'+url_home + item_aux['href']+'|'+categoria['nome']+'\n')
+                cont+=1
             else:
                 print('Nenhum item na tag li')
                 break
