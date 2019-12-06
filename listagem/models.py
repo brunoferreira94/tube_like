@@ -17,8 +17,8 @@ class Tag(models.Model):
         return self.nome
 
 class Video_tag(models.Model):
-    video_id = models.ForeignKey(Video)
-    tag_id = models.ForeignKey(Tag)
+    video_id = models.ForeignKey(Video, on_delete=models.CASCADE)
+    tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
     def __str__(self):
         return self.nome
 
@@ -29,5 +29,5 @@ class Pornstar(models.Model):
         return self.nome
 
 class Video_pornstar(models.Model):
-    video_id = models.ForeignKey(Video)
-    pornstar_id = models.ForeignKey(Pornstar)
+    video_id = models.ForeignKey(Video, on_delete=models.CASCADE)
+    pornstar_id = models.ForeignKey(Pornstar, on_delete=models.CASCADE)
