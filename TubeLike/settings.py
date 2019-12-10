@@ -72,12 +72,12 @@ WSGI_APPLICATION = 'TubeLike.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tube_like',
-        'USER': 'root',
-        'PASSWORD': 'Kurosaki1',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dahs4mihrq4hml',
+        'USER': 'xlpfhrmqdvtcmp',
+        'PASSWORD': 'ce750c1e714ca0a0d433593495bf081e323153f990ba05298e6b10c019c81f17',
+        'HOST': 'ec2-107-20-234-175.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
